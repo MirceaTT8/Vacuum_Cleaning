@@ -42,7 +42,7 @@ public class VacuumWorld extends Environment{
       be called once per object. */
    public void addAgent(Agent agent) {
 
-      if (agents.isEmpty() == false) {
+      if (!agents.isEmpty()) {
          output.println("ERROR - tried to add a second agent to a single agent environment");
       }
       else {
@@ -55,16 +55,11 @@ public class VacuumWorld extends Environment{
       action. */
    protected boolean isComplete() {
 
-      if (((VacuumState)state).isRobotOff() || timedOut()) 
-         return true;
-      else
-         return false;
+       return ((VacuumState) state).isRobotOff() || timedOut();
    }
 
    protected boolean timedOut() {
-      if (!interactive && getNumActions() >= MAX_ACTIONS)
-         return true;
-      else return false;
+       return !interactive && getNumActions() >= MAX_ACTIONS;
    }
 
    /** Create a percept for an agent. This implements the see: E -> Per

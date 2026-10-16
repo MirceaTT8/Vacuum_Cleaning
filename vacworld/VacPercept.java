@@ -87,7 +87,7 @@ public class VacPercept extends Percept{
 		if (obstacle == true)
 			pstring.append("OBSTACLE ");
 		if (bump == true)
-			pstring.append("BUMP");
+			pstring.append("BUMP ");
 		return pstring.toString();
 	}
 }
